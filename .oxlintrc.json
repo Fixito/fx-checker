@@ -1,0 +1,86 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+
+  "plugins": ["typescript", "react", "unicorn", "jsx-a11y"],
+  "jsPlugins": ["eslint-plugin-react-you-might-not-need-an-effect"],
+
+  "categories": {
+    "correctness": "error",
+    "suspicious": "warn",
+    "style": "warn"
+  },
+
+  "env": {
+    "builtin": true
+  },
+
+  "ignorePatterns": ["dist"],
+
+  "rules": {
+    "func-style": "off",
+    "react/react-in-jsx-scope": "off",
+    "sort-imports": "off",
+
+    "unicorn/filename-case": [
+      "error",
+      {
+        "cases": { "kebabCase": true, "pascalCase": true },
+        "ignore": ["^\\d"]
+      }
+    ]
+  },
+
+  "overrides": [
+    {
+      "files": ["**/*.{ts,tsx}"],
+      "env": {
+        "browser": true
+      },
+      "rules": {
+        "jsx-a11y/control-has-associated-label": "off",
+        "no-ternary": "off",
+        "no-unused-vars": "off",
+        "react/hook-use-state": "off",
+
+        "no-array-constructor": "error",
+        "no-case-declarations": "error",
+        "no-empty": "error",
+        "no-fallthrough": "error",
+        "no-prototype-builtins": "error",
+        "no-regex-spaces": "error",
+        "no-useless-assignment": "error",
+
+        "typescript/ban-ts-comment": ["error", { "minimumDescriptionLength": 10 }],
+        "typescript/no-dynamic-delete": "error",
+        "typescript/no-empty-function": "error",
+        "typescript/no-empty-object-type": "error",
+        "typescript/no-explicit-any": "error",
+        "typescript/no-invalid-void-type": "error",
+        "typescript/no-namespace": "error",
+        "typescript/no-non-null-asserted-nullish-coalescing": "error",
+        "typescript/no-non-null-assertion": "error",
+        "typescript/no-require-imports": "error",
+        "typescript/no-unsafe-function-type": "error",
+        "typescript/prefer-literal-enum-member": "error",
+
+        "react/jsx-max-depth": ["warn", { "max": 5 }],
+        "react/only-export-components": ["error", { "allowConstantExport": true }],
+        "react/rules-of-hooks": "error",
+
+        "react-you-might-not-need-an-effect/no-adjust-state-on-prop-change": "warn",
+        "react-you-might-not-need-an-effect/no-chain-state-updates": "warn",
+        "react-you-might-not-need-an-effect/no-derived-state": "warn",
+        "react-you-might-not-need-an-effect/no-event-handler": "warn",
+        "react-you-might-not-need-an-effect/no-initialize-state": "warn",
+        "react-you-might-not-need-an-effect/no-pass-data-to-parent": "warn",
+        "react-you-might-not-need-an-effect/no-pass-live-state-to-parent": "warn",
+        "react-you-might-not-need-an-effect/no-reset-all-state-on-prop-change": "warn"
+      }
+    }
+  ],
+
+  "options": {
+    "typeAware": true,
+    "typeCheck": true
+  }
+}
