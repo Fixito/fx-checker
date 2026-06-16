@@ -64,7 +64,8 @@
         "typescript/prefer-literal-enum-member": "error",
 
         "react/jsx-max-depth": ["warn", { "max": 5 }],
-        "react/only-export-components": ["error", { "allowConstantExport": true }],
+        "react/jsx-props-no-spreading": "off",
+        "react/only-export-components": ["warn", { "allowConstantExport": true }],
         "react/rules-of-hooks": "error",
 
         "react-you-might-not-need-an-effect/no-adjust-state-on-prop-change": "warn",

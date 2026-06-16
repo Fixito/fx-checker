@@ -10,5 +10,11 @@
   "tabWidth": 2,
   "trailingComma": "all",
   "useTabs": false,
-  "sortImports": true
+  "sortImports": true,
+  "sortPackageJson": true,
+  "sortTailwindcss": {
+    "stylesheet": "./src/index.css",
+    "functions": ["clsx", "cn"],
+    "preserveWhitespace": true
+  }
 }
