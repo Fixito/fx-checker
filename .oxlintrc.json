@@ -18,8 +18,10 @@
 
   "rules": {
     "func-style": "off",
-    "react/react-in-jsx-scope": "off",
+    "no-magic-numbers": "off",
     "sort-imports": "off",
+
+    "react/react-in-jsx-scope": "off",
 
     "unicorn/filename-case": [
       "error",
