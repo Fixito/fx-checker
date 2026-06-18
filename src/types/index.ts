@@ -9,7 +9,20 @@ export const cc = (code: string): CurrencyCode =>
   // oxlint-disable-next-line typescript/no-unsafe-type-assertion
   code.toUpperCase() as CurrencyCode;
 
+export function pairEq(pairA: Pair, pairB: Pair): boolean {
+  return pairA.base === pairB.base && pairA.quote === pairB.quote;
+}
+
 export interface Pair {
   base: CurrencyCode;
   quote: CurrencyCode;
+}
+
+export interface ConversionEntry {
+  id: string;
+  pair: Pair;
+  amount: number;
+  rate: number;
+  result: number;
+  timestamp: number;
 }
