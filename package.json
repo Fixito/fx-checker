@@ -51,6 +51,7 @@
     "lint-staged": "^17.0.5",
     "oxfmt": "^0.51.0",
     "oxlint": "^1.66.0",
+    "oxlint-plugin-query": "^0.1.1",
     "oxlint-tsgolint": "^0.23.0",
     "typescript": "~6.0.2",
     "vite": "^8.0.12"

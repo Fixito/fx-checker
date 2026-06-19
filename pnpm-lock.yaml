@@ -108,6 +108,9 @@ importers:
       oxlint:
         specifier: ^1.66.0
         version: 1.66.0(oxlint-tsgolint@0.23.0)
+      oxlint-plugin-query:
+        specifier: ^0.1.1
+        version: 0.1.1
       oxlint-tsgolint:
         specifier: ^0.23.0
         version: 0.23.0
@@ -2193,6 +2196,10 @@ packages:
     peerDependenciesMeta:
       svelte:
         optional: true
+
+  oxlint-plugin-query@0.1.1:
+    resolution: {integrity: sha512-d0LGnwXEcMumhXvfq2XndKUM9dWa/epZjg7mn6v2HqRVPNQQU6o9Zr0cEbNtxjVjx/zQ1daN7iMCM+aWzQ0MDA==}
+    engines: {node: '>=18.0.0'}
 
   oxlint-tsgolint@0.23.0:
     resolution: {integrity: sha512-3mBv3CoPbh8dFbzfDGIWa2ytZjn2v+3EX4aKRXjIhsoGFzG8GCjfRirz3rwZf1wYbZzsNLTSgpw8VjQuWdp/jA==}
@@ -4606,6 +4613,8 @@ snapshots:
       '@oxfmt/binding-win32-arm64-msvc': 0.51.0
       '@oxfmt/binding-win32-ia32-msvc': 0.51.0
       '@oxfmt/binding-win32-x64-msvc': 0.51.0
+
+  oxlint-plugin-query@0.1.1: {}
 
   oxlint-tsgolint@0.23.0:
     optionalDependencies:
