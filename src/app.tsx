@@ -1,5 +1,6 @@
 import { parseAsFloat, parseAsStringLiteral, throttle, useQueryState } from 'nuqs';
 
+import Header from '@/components/header.tsx';
 import { RANGE_VALUES, TAB_VALUES } from '@/types/index.ts';
 
 export default function App() {
@@ -20,9 +21,7 @@ export default function App() {
 
   return (
     <>
-      <header className="container">
-        <h1 className="text-preset-3-bold">FX_Checker</h1>
-      </header>
+      <Header />
 
       <div>Ticker</div>
 
