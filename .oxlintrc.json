@@ -42,13 +42,14 @@
         "browser": true
       },
       "rules": {
-        "jsx-a11y/control-has-associated-label": "off",
         "no-ternary": "off",
         "no-unused-vars": "off",
+        "jsx-a11y/control-has-associated-label": "off",
         "react/hook-use-state": "off",
 
         "no-array-constructor": "error",
         "no-case-declarations": "error",
+        "no-console": "warn",
         "no-empty": "error",
         "no-fallthrough": "error",
         "no-prototype-builtins": "error",
