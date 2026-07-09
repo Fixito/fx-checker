@@ -38,6 +38,8 @@ export function Converter({
           amount={amount}
           base={base}
           label="Send"
+          id="send-amount"
+          name="send-amount"
           onCurrencyChange={setBaseRaw}
           onInputChange={setAmount}
         />
@@ -50,6 +52,8 @@ export function Converter({
           inputClassName="text-accent"
           isReadOnly
           label="Receive"
+          id="receive-amount"
+          name="receive-amount"
           onCurrencyChange={setQuoteRaw}
         />
       </div>

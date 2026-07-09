@@ -93,11 +93,13 @@ export default function CurrencySelect({ value, onChange }: CurrencySelectProps)
               <ComboboxCollection>
                 {(item) => (
                   <ComboboxItem key={item.currencySymbol} value={item}>
-                    <img
-                      src={item.icon}
-                      alt={item.currencySymbol}
-                      className="size-5 rounded-full object-cover"
-                    />
+                    {item.icon && (
+                      <img
+                        src={item.icon}
+                        alt={item.currencySymbol}
+                        className="size-5 rounded-full object-cover"
+                      />
+                    )}
                     <span>{item.currencySymbol}</span>
                     <span className="text-preset-5 text-muted-foreground">{item.currencyName}</span>
                   </ComboboxItem>

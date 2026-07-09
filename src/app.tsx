@@ -27,9 +27,9 @@ export default function App() {
 
   const { data } = useQuery(getRateQueryOptions(base, quote));
 
-  const handleSwap = async () => {
-    await setBaseRaw(quote);
-    await setQuoteRaw(base);
+  const handleSwap = () => {
+    setBaseRaw(quote);
+    setQuoteRaw(base);
   };
 
   return (

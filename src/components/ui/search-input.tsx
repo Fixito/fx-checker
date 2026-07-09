@@ -1,16 +1,20 @@
+import React from 'react';
+
 import Iconsearch from '@/assets/images/icon-search.svg?react';
 import { Field, FieldLabel } from '@/components/ui/field.tsx';
 import { InputGroup, InputGroupAddon, InputGroupInput } from '@/components/ui/input-group.tsx';
 
 function SearchInput() {
+  const inputId = React.useId();
+
   return (
     <Field>
-      <FieldLabel htmlFor="input-group-url" className="sr-only">
+      <FieldLabel htmlFor={inputId} className="sr-only">
         Search currencies
       </FieldLabel>
       <InputGroup className="h-11.5">
         <InputGroupInput
-          id="input-group-url"
+          id={inputId}
           placeholder="Search currencies..."
           className="text-preset-5"
         />

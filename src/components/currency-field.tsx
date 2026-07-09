@@ -7,6 +7,8 @@ interface ConverterProps {
   amount: number;
   base: CurrencyCode;
   label: string;
+  id?: string;
+  name?: string;
   inputClassName?: string;
   isReadOnly?: boolean;
   onInputChange?: (value: number) => void;
@@ -19,6 +21,8 @@ export function CurrencyField({
   inputClassName,
   isReadOnly,
   label,
+  id,
+  name,
   onCurrencyChange,
   onInputChange,
 }: ConverterProps) {
@@ -29,14 +33,19 @@ export function CurrencyField({
       <div className="mbs-5 flex items-center justify-between">
         <Input
           type="number"
-          name="send"
-          id="send"
+          name={name ?? 'currency-amount'}
+          id={id ?? 'currency-amount'}
           value={amount}
           readOnly={isReadOnly}
           onChange={
             isReadOnly || !onInputChange
               ? undefined
-              : (event) => onInputChange(parseFloat(event.target.value))
+              : (event) => {
+                  const value = parseFloat(event.target.value);
+                  if (!Number.isNaN(value)) {
+                    onInputChange(value);
+                  }
+                }
           }
           className={cn('focus-visible:shadow-focus-input', inputClassName)}
         />

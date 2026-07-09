@@ -8,10 +8,10 @@
 
 | Couche          | Choix                                             | Justification                                             |
 | --------------- | ------------------------------------------------- | --------------------------------------------------------- |
-| Framework       | Vite + React 18 SPA                               | Pas de SSR nécessaire, déploiement statique simple        |
+| Framework       | Vite + React 19.x SPA                             | Pas de SSR nécessaire, déploiement statique simple        |
 | Langage         | TypeScript strict                                 | Sécurité des types, `CurrencyCode` brand                  |
-| Style           | Tailwind CSS v3                                   | Utility-first, tokens custom via `fx-*`                   |
-| Composants      | shadcn/ui (base structurelle) + restyling complet | A11y et comportements keyboard gratuits                   |
+| Style           | Tailwind CSS v4.x                                 | Utility-first, tokens custom via `fx-*`                   |
+| Composants      | @base-ui/react (base structurelle) + restyling complet | A11y et comportements keyboard gratuits                   |
 | State serveur   | TanStack Query v5                                 | Cache partagé, stale-time par query, refetch background   |
 | State client    | Zustand v5 + `persist`                            | Favoris + log persistés localStorage, zéro boilerplate    |
 | URL state       | nuqs v2                                           | 5 params URL type-safe, vue partageable par lien          |
@@ -164,9 +164,9 @@ interface FXStore {
   conversionLog: ConversionEntry[];
 
   toggleFavorite: (pair: Pair) => void;
-  isFavorited: (pair: Pair) => boolean;
-  logConversion: (entry: Omit<ConversionEntry, 'id' | 'ts'>) => void;
-  deleteLog: (id: number) => void;
+  isFavorite: (pair: Pair) => boolean;
+  logConversion: (entry: Omit<ConversionEntry, 'id' | 'timestamp'>) => void;
+  deleteLog: (id: string) => void;
   clearLog: () => void;
 }
 ```
@@ -185,12 +185,12 @@ interface Pair {
 }
 
 interface ConversionEntry {
-  id: number;
+  id: string;
   pair: Pair;
   amount: number;
   rate: number;
   result: number;
-  ts: string; // ISO 8601
+  timestamp: number;
 }
 
 // dailyChange = variation EOD vs veille (affiché sans label dans l'UI)
