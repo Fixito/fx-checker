@@ -1,6 +1,6 @@
 import logo from '../assets/images/logo.svg';
 
-export default function Header() {
+export function Header() {
   return (
     <header className="p-4 tablet:px-6 tablet:py-5">
       <div className="flex items-center justify-between gap-4">
