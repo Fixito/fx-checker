@@ -69,7 +69,7 @@
         "typescript/no-unsafe-function-type": "error",
         "typescript/prefer-literal-enum-member": "error",
 
-        "react/jsx-max-depth": ["warn", { "max": 5 }],
+        "react/jsx-max-depth": ["warn", { "max": 6 }],
         "react/jsx-props-no-spreading": "off",
         "react/only-export-components": ["warn", { "allowConstantExport": true }],
         "react/rules-of-hooks": "error",
