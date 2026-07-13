@@ -2,7 +2,10 @@
   "$schema": "./node_modules/oxlint/configuration_schema.json",
 
   "plugins": ["typescript", "react", "unicorn", "jsx-a11y"],
-  "jsPlugins": ["eslint-plugin-react-you-might-not-need-an-effect"],
+  "jsPlugins": [
+    "eslint-plugin-react-you-might-not-need-an-effect",
+    "./node_modules/oxlint-plugin-query/dist/index.js"
+  ],
 
   "categories": {
     "correctness": "error",
@@ -39,13 +42,14 @@
         "browser": true
       },
       "rules": {
-        "jsx-a11y/control-has-associated-label": "off",
         "no-ternary": "off",
         "no-unused-vars": "off",
+        "jsx-a11y/control-has-associated-label": "off",
         "react/hook-use-state": "off",
 
         "no-array-constructor": "error",
         "no-case-declarations": "error",
+        "no-console": "warn",
         "no-empty": "error",
         "no-fallthrough": "error",
         "no-prototype-builtins": "error",
@@ -65,7 +69,7 @@
         "typescript/no-unsafe-function-type": "error",
         "typescript/prefer-literal-enum-member": "error",
 
-        "react/jsx-max-depth": ["warn", { "max": 5 }],
+        "react/jsx-max-depth": ["warn", { "max": 6 }],
         "react/jsx-props-no-spreading": "off",
         "react/only-export-components": ["warn", { "allowConstantExport": true }],
         "react/rules-of-hooks": "error",
@@ -77,7 +81,14 @@
         "react-you-might-not-need-an-effect/no-initialize-state": "warn",
         "react-you-might-not-need-an-effect/no-pass-data-to-parent": "warn",
         "react-you-might-not-need-an-effect/no-pass-live-state-to-parent": "warn",
-        "react-you-might-not-need-an-effect/no-reset-all-state-on-prop-change": "warn"
+        "react-you-might-not-need-an-effect/no-reset-all-state-on-prop-change": "warn",
+
+        "oxlint-plugin-query/exhaustive-deps": "error",
+        "oxlint-plugin-query/no-rest-destructuring": "warn",
+        "oxlint-plugin-query/stable-query-client": "error",
+        "oxlint-plugin-query/no-unstable-deps": "error",
+        "oxlint-plugin-query/infinite-query-property-order": "error",
+        "oxlint-plugin-query/mutation-property-order": "error"
       }
     }
   ],

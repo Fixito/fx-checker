@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import type { CurrencyCode } from '@/types';
 
-const FRANKFURTER_API_URL = 'https://api.frankfurter.dev/v2/rates';
+const FRANKFURTER_API_URL = 'https://api.frankfurter.dev/v2';
 
 const RateSchema = z.object({
   base: z.string(),
@@ -12,8 +12,19 @@ const RateSchema = z.object({
 });
 
 const FrankfurterResponseSchema = z.array(RateSchema);
-
 export type Rate = z.infer<typeof RateSchema>;
+
+const CurrencySchema = z.object({
+  end_date: z.string(),
+  iso_code: z.string(),
+  iso_numeric: z.string(),
+  name: z.string(),
+  start_date: z.string(),
+  symbol: z.string(),
+});
+
+export const CurrenciesResponseSchema = z.array(CurrencySchema);
+export type Currency = z.infer<typeof CurrencySchema>;
 
 function toDateString(date: Date): string {
   return date.toISOString().slice(0, 10);
@@ -31,12 +42,16 @@ async function fetchJson<Response>(url: string, schema: z.ZodSchema<Response>): 
   return schema.parse(data);
 }
 
+export async function fetchCurrencies(): Promise<Currency[]> {
+  return fetchJson(`${FRANKFURTER_API_URL}/currencies`, CurrenciesResponseSchema);
+}
+
 export async function fetchRate(
   base: CurrencyCode,
   quote: CurrencyCode,
 ): Promise<Rate | undefined> {
   const data = await fetchJson(
-    `${FRANKFURTER_API_URL}?base=${base}&quotes=${quote}`,
+    `${FRANKFURTER_API_URL}/rates?base=${base}&quotes=${quote}`,
     FrankfurterResponseSchema,
   );
 
@@ -68,7 +83,7 @@ export async function fetchPreviousRate(
 }
 
 export async function fetchAllRates(base: CurrencyCode): Promise<Rate[]> {
-  return fetchJson(`${FRANKFURTER_API_URL}?base=${base}`, FrankfurterResponseSchema);
+  return fetchJson(`${FRANKFURTER_API_URL}/rates?base=${base}`, FrankfurterResponseSchema);
 }
 
 export async function fetchHistoricalRates(
@@ -80,7 +95,7 @@ export async function fetchHistoricalRates(
   const from = toDateString(new Date(Date.now() - days * 86_400_000));
 
   const data = await fetchJson(
-    `${FRANKFURTER_API_URL}?base=${base}&quotes=${quote}&from=${from}&to=${to}`,
+    `${FRANKFURTER_API_URL}/rates?base=${base}&quotes=${quote}&from=${from}&to=${to}`,
     FrankfurterResponseSchema,
   );
 

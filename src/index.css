@@ -13,7 +13,10 @@
   --color-accent: var(--accent);
   --color-accent-hover: var(--accent-hover);
   --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-card-muted-foreground: var(--card-muted-foreground);
   --color-card-inner: var(--card-inner);
+  --color-card-inner-border: var(--card-inner-border);
   --color-destructive: var(--destructive);
   --color-success: var(--success);
   --color-border: var(--border);
@@ -34,13 +37,13 @@
   --color-chart-1: var(--chart-1);
   --color-accent-foreground: var(--accent-foreground);
   --color-muted-foreground: var(--muted-foreground);
+  --color-secondary-hover: var(--secondary-hover);
   --color-secondary-foreground: var(--secondary-foreground);
   --color-secondary: var(--secondary);
   --color-primary-foreground: var(--primary-foreground);
   --color-primary: var(--primary);
   --color-popover-foreground: var(--popover-foreground);
   --color-popover: var(--popover);
-  --color-card-foreground: var(--card-foreground);
   --radius-sm: calc(var(--radius) * 0.6);
   --radius-md: calc(var(--radius) * 0.8);
   --radius-lg: var(--radius);
@@ -137,6 +140,9 @@
   --radius-24: 24px;
   --radius-full: 999px;
 
+  --shadow-focus: var(--focus-ring);
+  --shadow-focus-input: var(--focus-ring-input);
+
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 
   --animate-ticker: ticker 20s linear infinite;
@@ -157,14 +163,18 @@
   --foreground: var(--color-white);
   --muted: var(--color-neutral-200);
   --muted-foreground: var(--color-neutral-200);
-  --border: var(--color-neutral-400);
-  --input: var(--color-neutral-200);
+  --border: var(--color-neutral-500);
+  --input: var(--color-neutral-400);
   --ring: var(--color-lime-500);
+  --focus-ring: 0 0 0 3px var(--color-neutral-600), 0 0 0 4px var(--color-lime-500);
+  --focus-ring-input: 0 0 0 2px var(--color-neutral-600), 0 0 0 4px var(--color-lime-500);
   --radius: 0.625rem;
 
-  --card: var(--color-neutral-600);
-  --card-inner: var(--color-neutral-500);
+  --card: var(--color-neutral-700);
+  --card-inner: var(--color-neutral-600);
+  --card-inner-border: var(--color-neutral-500);
   --card-foreground: var(--color-white);
+  --card-muted-foreground: var(--color-neutral-100);
   --popover: var(--color-neutral-600);
   --popover-foreground: var(--color-white);
 
@@ -174,7 +184,8 @@
   --accent-hover: var(--color-lime-800);
   --accent-foreground: var(--color-neutral-900);
 
-  --secondary: var(--color-neutral-500);
+  --secondary: var(--color-neutral-600);
+  --secondary-hover: var(--color-neutral-500);
   --secondary-foreground: var(--color-white);
 
   --destructive: var(--color-red-500);
@@ -215,53 +226,57 @@
   button:active {
     transform: scale(0.97);
   }
+
+  input[type='number']::-webkit-inner-spin-button,
+  input[type='number']::-webkit-outer-spin-button {
+    appearance: none;
+  }
 }
 
 @utility container {
   @apply mx-auto px-4 py-8 tablet:px-8 tablet:py-12 desktop:mx-auto desktop:max-w-content;
 }
 
-@layer components {
-  .text-preset-1 {
-    @apply text-4xl font-bold tracking-tight;
-  }
+@utility text-preset-1 {
+  @apply text-4xl font-bold tracking-tight;
+}
 
-  .text-preset-1-tablet {
-    @apply text-3xl font-bold tracking-tight;
-  }
+@utility text-preset-1-tablet {
+  @apply text-3xl font-bold tracking-tight;
+}
 
-  .text-preset-2 {
-    @apply text-xl font-regular tracking-tight;
-  }
+@utility text-preset-2 {
+  @apply text-xl font-regular tracking-tight;
+}
 
-  .text-preset-2-bold {
-    @apply text-xl font-bold tracking-tight;
-  }
+@utility text-preset-2-bold {
+  @apply text-xl font-bold tracking-tight;
+}
 
-  .text-preset-3 {
-    @apply text-base font-regular tracking-wider;
-  }
+@utility text-preset-3 {
+  @apply text-base font-regular tracking-wider;
+}
 
-  .text-preset-3-medium {
-    @apply text-base font-medium tracking-wider;
-  }
-  .text-preset-3-bold {
-    @apply text-base font-bold tracking-wider;
-  }
+@utility text-preset-3-medium {
+  @apply text-base font-medium tracking-wider;
+}
 
-  .text-preset-4 {
-    @apply text-sm font-regular tracking-wider;
-  }
+@utility text-preset-3-bold {
+  @apply text-base font-bold tracking-wider;
+}
 
-  .text-preset-5 {
-    @apply text-xs font-regular tracking-wide;
-  }
+@utility text-preset-4 {
+  @apply text-sm font-regular tracking-wider;
+}
 
-  .text-preset-5-medium {
-    @apply text-xs font-medium tracking-wide;
-  }
+@utility text-preset-5 {
+  @apply text-xs font-regular tracking-wide;
+}
 
-  .text-preset-6 {
-    @apply text-2xs font-regular tracking-normal;
-  }
+@utility text-preset-5-medium {
+  @apply text-xs font-medium tracking-wide;
+}
+
+@utility text-preset-6 {
+  @apply text-2xs font-regular tracking-normal;
 }
