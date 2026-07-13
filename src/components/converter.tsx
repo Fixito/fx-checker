@@ -2,6 +2,7 @@ import IconStar from '@/assets/images/icon-star.svg?react';
 import { CurrencyField } from '@/components/currency-field.tsx';
 import { SwapButton } from '@/components/swap-button.tsx';
 import { Button } from '@/components/ui/button.tsx';
+import { calculateConversion } from '@/lib/conversion.ts';
 import type { CurrencyCode } from '@/types/index.ts';
 
 interface ConverterProps {
@@ -27,8 +28,7 @@ export function Converter({
   setAmount,
   handleSwap,
 }: ConverterProps) {
-  const converted =
-    data?.rate != undefined ? Math.round(amount * data.rate * 100) / 100 : undefined;
+  const converted = calculateConversion(amount, data?.rate);
 
   return (
     <div className="mbs-4 rounded-20 bg-card">
