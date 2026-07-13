@@ -2,7 +2,7 @@ import { z } from 'zod';
 
 import type { CurrencyCode } from '@/types';
 
-const FRANKFURTER_API_URL = 'https://api.frankfurter.dev/v2';
+export const FRANKFURTER_API_URL = 'https://api.frankfurter.dev/v2';
 
 const RateSchema = z.object({
   base: z.string(),
@@ -66,8 +66,10 @@ export async function fetchPreviousRate(
     try {
       const date = toDateString(new Date(Date.now() - idx * 86_400_000));
 
+      const params = new URLSearchParams({ base, date, quotes: quote });
+
       const data = await fetchJson(
-        `${FRANKFURTER_API_URL}?base=${base}&quotes=${quote}&date=${date}`,
+        `${FRANKFURTER_API_URL}/rates?${params}`,
         FrankfurterResponseSchema,
       );
 
