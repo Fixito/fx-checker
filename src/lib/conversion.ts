@@ -1,5 +1,5 @@
 export function calculateConversion(amount: number, rate: number | undefined): number | undefined {
-  if (!rate) {
+  if (rate === undefined) {
     return undefined;
   }
 
