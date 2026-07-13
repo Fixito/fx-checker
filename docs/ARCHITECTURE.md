@@ -6,19 +6,19 @@
 
 ## 1. Stack technique
 
-| Couche          | Choix                                             | Justification                                             |
-| --------------- | ------------------------------------------------- | --------------------------------------------------------- |
-| Framework       | Vite + React 19.x SPA                             | Pas de SSR nécessaire, déploiement statique simple        |
-| Langage         | TypeScript strict                                 | Sécurité des types, `CurrencyCode` brand                  |
-| Style           | Tailwind CSS v4.x                                 | Utility-first, tokens custom via `fx-*`                   |
+| Couche          | Choix                                                  | Justification                                             |
+| --------------- | ------------------------------------------------------ | --------------------------------------------------------- |
+| Framework       | Vite + React 19.x SPA                                  | Pas de SSR nécessaire, déploiement statique simple        |
+| Langage         | TypeScript strict                                      | Sécurité des types, `CurrencyCode` brand                  |
+| Style           | Tailwind CSS v4.x                                      | Utility-first, tokens custom via `fx-*`                   |
 | Composants      | @base-ui/react (base structurelle) + restyling complet | A11y et comportements keyboard gratuits                   |
-| State serveur   | TanStack Query v5                                 | Cache partagé, stale-time par query, refetch background   |
-| State client    | Zustand v5 + `persist`                            | Favoris + log persistés localStorage, zéro boilerplate    |
-| URL state       | nuqs v2                                           | 5 params URL type-safe, vue partageable par lien          |
-| Charts          | Recharts v2                                       | React-natif, area chart avec gradient, suffisant pour EOD |
-| Package manager | pnpm                                              | Config existante de Thomas                                |
-| Font            | JetBrains Mono                                    | Design Figma, déjà configuré dans VSCode                  |
-| Tests           | Vitest + Testing Library + MSW                    | Unit + intégration, mock des appels API                   |
+| State serveur   | TanStack Query v5                                      | Cache partagé, stale-time par query, refetch background   |
+| State client    | Zustand v5 + `persist`                                 | Favoris + log persistés localStorage, zéro boilerplate    |
+| URL state       | nuqs v2                                                | 5 params URL type-safe, vue partageable par lien          |
+| Charts          | Recharts v2                                            | React-natif, area chart avec gradient, suffisant pour EOD |
+| Package manager | pnpm                                                   | Config existante de Thomas                                |
+| Font            | JetBrains Mono                                         | Design Figma, déjà configuré dans VSCode                  |
+| Tests           | Vitest + Testing Library + MSW                         | Unit + intégration, mock des appels API                   |
 
 ---
 
