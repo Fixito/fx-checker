@@ -28,8 +28,8 @@ export default function App() {
   const { data } = useQuery(getRateQueryOptions(base, quote));
 
   const handleSwap = () => {
-    setBaseRaw(quote);
-    setQuoteRaw(base);
+    void setBaseRaw(quote);
+    void setQuoteRaw(base);
   };
 
   return (
