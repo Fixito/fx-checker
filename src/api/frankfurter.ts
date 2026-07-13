@@ -66,8 +66,10 @@ export async function fetchPreviousRate(
     try {
       const date = toDateString(new Date(Date.now() - idx * 86_400_000));
 
+      const params = new URLSearchParams({ base, date, quotes: quote });
+
       const data = await fetchJson(
-        `${FRANKFURTER_API_URL}/rates?base=${base}&quotes=${quote}&date=${date}`,
+        `${FRANKFURTER_API_URL}/rates?${params}`,
         FrankfurterResponseSchema,
       );
 
