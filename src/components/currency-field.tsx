@@ -3,7 +3,7 @@ import { Input } from '@/components/ui/input.tsx';
 import { cn } from '@/lib/utils.ts';
 import type { CurrencyCode } from '@/types/index.ts';
 
-interface ConverterProps {
+interface CurrencyField {
   amount: number;
   base: CurrencyCode;
   label: string;
@@ -25,7 +25,7 @@ export function CurrencyField({
   name,
   onCurrencyChange,
   onInputChange,
-}: ConverterProps) {
+}: CurrencyField) {
   return (
     <div className="w-full rounded-16 bg-card-inner p-4 outline outline-card-inner-border">
       <p className="text-preset-4 text-card-muted-foreground uppercase">{label}</p>
