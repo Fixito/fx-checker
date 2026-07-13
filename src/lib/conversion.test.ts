@@ -18,4 +18,8 @@ describe('calculateConversion', () => {
   it('returns 0 when amount is 0', () => {
     expect(calculateConversion(0, 0.861_44)).toBe(0);
   });
+
+  it('returns 0 when rate is 0', () => {
+    expect(calculateConversion(1000, 0)).toBe(0);
+  });
 });
