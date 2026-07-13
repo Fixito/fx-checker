@@ -1,6 +1,6 @@
 import { http, HttpResponse } from 'msw';
 
-import { FRANKFURTER_API_URL } from '@/api/frankfurter.ts';
+import { FRANKFURTER_API_URL } from '@/api/frankfurter';
 
 export const handlers = [
   http.get(`${FRANKFURTER_API_URL}/rates`, ({ request }) => {

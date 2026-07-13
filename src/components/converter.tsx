@@ -2,8 +2,8 @@ import IconStar from '@/assets/images/icon-star.svg?react';
 import { CurrencyField } from '@/components/currency-field.tsx';
 import { SwapButton } from '@/components/swap-button.tsx';
 import { Button } from '@/components/ui/button.tsx';
-import { calculateConversion } from '@/lib/conversion.ts';
-import type { CurrencyCode } from '@/types/index.ts';
+import { calculateConversion } from '@/lib/conversion';
+import type { CurrencyCode } from '@/types/index';
 
 interface ConverterProps {
   amount: number;
