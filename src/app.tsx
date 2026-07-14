@@ -3,6 +3,7 @@ import { parseAsFloat, parseAsStringLiteral, throttle, useQueryState } from 'nuq
 
 import { Converter } from '@/components/converter.tsx';
 import { Header } from '@/components/header.tsx';
+import { Ticker } from '@/components/ticker.tsx';
 import { getRateQueryOptions } from '@/queries/rates.ts';
 import { cc, RANGE_VALUES, TAB_VALUES } from '@/types/index.ts';
 
@@ -36,7 +37,7 @@ export default function App() {
     <>
       <Header />
 
-      {/* <div>Ticker</div> */}
+      <Ticker />
 
       <main className="container">
         {/* Converter wrapper */}
