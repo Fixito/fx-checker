@@ -13,6 +13,10 @@ export function pairEq(pairA: Pair, pairB: Pair): boolean {
   return pairA.base === pairB.base && pairA.quote === pairB.quote;
 }
 
+export function formatPair(pair: Pair): string {
+  return `${pair.base}/${pair.quote}`;
+}
+
 export interface Pair {
   base: CurrencyCode;
   quote: CurrencyCode;
