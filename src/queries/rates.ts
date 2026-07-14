@@ -16,6 +16,7 @@ export function getRateQueryOptions(base: CurrencyCode, quote: CurrencyCode) {
   return queryOptions({
     queryFn: () => fetchRate(base, quote),
     queryKey: queryKeys.getRate(base, quote),
+    refetchInterval: 15000, // 15s
   });
 }
 
