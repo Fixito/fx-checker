@@ -145,7 +145,7 @@
 
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
 
-  --animate-ticker: ticker 90s linear infinite;
+  --animate-ticker: ticker 60s linear infinite;
 
   @keyframes ticker {
     0% {

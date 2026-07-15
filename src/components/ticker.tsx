@@ -1,4 +1,3 @@
-import IconChevronDown from '@/assets/images/icon-chevron-down.svg?react';
 import { useTickerRates } from '@/hooks/use-ticker-rates.ts';
 import { calculateDailyChange } from '@/lib/conversion';
 import { formatPair } from '@/types';
@@ -25,14 +24,15 @@ export function Ticker() {
                 className="flex shrink-0 items-center gap-2.5 border border-border p-3"
               >
                 <span className="text-muted-foreground">{formatPair(pair)}</span>
+
                 <span className="font-bold">{isPending ? '...' : rate?.toFixed(4)}</span>
+
                 {dailyChange != undefined && (
-                  <span className={dailyChange >= 0 ? 'text-success' : 'text-destructive'}>
-                    {dailyChange >= 0 ? (
-                      <IconChevronDown className="inline rotate-180" />
-                    ) : (
-                      <IconChevronDown className="inline" />
-                    )}{' '}
+                  <span
+                    className={dailyChange >= 0 ? 'text-success' : 'text-destructive'}
+                    aria-label={`${dailyChange >= 0 ? 'Up' : 'Down'} ${Math.abs(dailyChange).toFixed(2)} percent`}
+                  >
+                    {dailyChange >= 0 ? '▲' : '▼'} {dailyChange >= 0 ? '+' : '-'}
                     {Math.abs(dailyChange).toFixed(2)}%
                   </span>
                 )}
